@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kaizen Flow — AI-Powered Customs Automation</title>
+    <meta name="description" content="Kaizen Flow automates Malaysian customs clearance with AI: document parsing, validation, and EDIFACT/CUSCAR generation. Cut manual work, errors, and delays." />
+    <meta name="robots" content="index,follow" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Kaizen Flow — AI-Powered Customs Automation" />
+    <meta property="og:description" content="Automate customs clearance with AI. Faster, fewer errors, EDIFACT/CUSCAR-ready." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kaizenflow.my/" />
+    <meta property="og:image" content="assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Tailwind (CDN for first launch) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              kf: { blue: '#0B63F6', dark: '#0A0F1F', light: '#EAF2FF', accent: '#00E5FF' }
+            },
+            boxShadow: { soft: '0 10px 30px rgba(0,0,0,0.08)' },
+            backgroundImage: { grid: "radial-gradient(#0B63F6 1px, transparent 1px)" }
+          }
+        }
+      }
+    </script>
+
+    <!-- Favicon (your logo) -->
+    <link rel="icon" href="assets/logo.png" />
+
+    <style>
+      .gradient-border { position: relative; }
+      .gradient-border::before { content: ""; position: absolute; inset: -1px; z-index: -1; border-radius: 1.25rem; background: linear-gradient(135deg, #0B63F6 0%, #00E5FF 50%, #6EE7B7 100%); }
+      /* Techy hero background — gradient + optional photo overlay */
+      .tech-bg { background-image:
+        linear-gradient(180deg, rgba(10,15,31,0.90), rgba(10,15,31,0.75)),
+        url('assets/tech-bg.jpg');
+        background-size: cover; background-position: center; }
+    </style>
+
+    <!-- Plausible (enable after domain is connected) -->
+    <!-- <script defer data-domain="kaizenflow.my" src="https://plausible.io/js/script.js"></script> -->
+  </head>
+
+  <body class="bg-white text-slate-900">
+    <!-- SUCCESS BANNER (appears after form redirect to /#thanks) -->
+    <div id="thanksBanner" class="hidden bg-emerald-600 text-white text-sm py-2 px-4 text-center">Thanks! We received your request and will reply within 1–2 business days.</div>
+
+    <!-- NAV -->
+    <header class="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-slate-200">
+      <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-3">
+          <!-- Your logo: put a PNG/SVG at assets/logo.png -->
+          <img src="assets/logo.png" alt="Kaizen Flow" class="h-9 w-9 rounded" />
+          <span class="font-semibold tracking-tight">Kaizen Flow</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#features" class="hover:text-kf-blue">Features</a>
+          <a href="#why" class="hover:text-kf-blue">Why</a>
+          <a href="#solution" class="hover:text-kf-blue">Solution</a>
+          <a href="#progress" class="hover:text-kf-blue">Progress</a>
+          <a href="#contact" class="rounded-full bg-kf-blue text-white px-4 py-2 hover:opacity-90 shadow-soft">Request Demo</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-slate-300">
+          <span class="sr-only">Open menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+      </div>
+      <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 bg-white">
+        <div class="px-4 py-3 flex flex-col gap-3 text-sm">
+          <a href="#features" class="hover:text-kf-blue">Features</a>
+          <a href="#why" class="hover:text-kf-blue">Why</a>
+          <a href="#solution" class="hover:text-kf-blue">Solution</a>
+          <a href="#progress" class="hover:text-kf-blue">Progress</a>
+          <a href="#contact" class="rounded-lg bg-kf-blue text-white px-4 py-2 hover:opacity-90 text-center">Request Demo</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden tech-bg">
+      <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(#00E5FF 1px, transparent 1px); background-size:18px 18px"></div>
+      <div class="relative mx-auto max-w-6xl px-4 py-20 grid md:grid-cols-2 gap-10 items-center text-white">
+        <div>
+          <span class="inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/20">
+            <span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span> Prototype Live — Seeking 3 Pilot Forwarders
+          </span>
+          <h1 class="mt-4 text-4xl md:text-5xl font-bold tracking-tight">
+            Automate Customs Clearance in <span class="text-kf-blue bg-white/10 px-2 rounded">Minutes</span>
+          </h1>
+          <p class="mt-4 text-white/80 max-w-xl">
+            Kaizen Flow reads your CI, PL, B/L, AWB and more — validates fields, suggests HS codes, and generates EDIFACT/CUSCAR-ready outputs. Reduce manual work and errors.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#contact" class="rounded-xl bg-kf-blue text-white px-5 py-3 shadow-soft text-center">Request a Demo</a>
+            <a href="#solution" class="rounded-xl bg-white/10 text-white px-5 py-3 ring-1 ring-white/20 text-center">How it works</a>
+          </div>
+          <!-- Top email capture -->
+          <div class="mt-8 p-2 rounded-2xl gradient-border">
+            <div class="rounded-2xl bg-white p-4">
+              <form name="lead-top" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/#thanks" class="flex flex-col sm:flex-row gap-3">
+                <input type="hidden" name="form-name" value="lead-top" />
+                <p class="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+                <input required type="email" name="email" placeholder="Work email" class="flex-1 rounded-xl border border-slate-300 px-4 py-3" />
+                <button class="rounded-xl bg-kf-blue text-white px-5 py-3">Notify Me</button>
+              </form>
+              <p class="mt-2 text-xs text-slate-500">We’ll only use this to contact you about Kaizen Flow. Unsubscribe anytime.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero visual -->
+        <div class="relative">
+          <img src="assets/mockup-1.png" alt="Kaizen Flow Preview" class="rounded-2xl shadow-soft border border-white/20" />
+          <p class="mt-3 text-xs text-white/70">*Illustrative UI. Demo available upon request.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY OUR SOLUTION -->
+    <section id="why" class="mx-auto max-w-6xl px-4 py-16">
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+          <p class="text-3xl font-bold">20–30 → <span class="text-kf-blue">2</span> min</p>
+          <p class="mt-2 text-sm text-slate-600">Typical per-shipment processing time drops from 20–30 minutes to ~2 minutes.</p>
+        </div>
+        <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+          <p class="text-3xl font-bold">70–80% ↓</p>
+          <p class="mt-2 text-sm text-slate-600">Less manual data entry through AI extraction + mapping.</p>
+        </div>
+        <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+          <p class="text-3xl font-bold">Fewer Errors</p>
+          <p class="mt-2 text-sm text-slate-600">Form-specific validation reduces rework and penalty risk.</p>
+        </div>
+        <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+          <p class="text-3xl font-bold">EDIFACT/CUSCAR</p>
+          <p class="mt-2 text-sm text-slate-600">Outputs aligned to MIG, ready for Dagang Net integration.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl bg-kf-light border border-slate-200 p-6">
+          <h3 class="font-semibold">Operations</h3>
+          <p class="mt-2 text-sm text-slate-700">Faster declarations, searchable history, and clear audit trails.</p>
+        </div>
+        <div class="rounded-2xl bg-kf-light border border-slate-200 p-6">
+          <h3 class="font-semibold">Compliance</h3>
+          <p class="mt-2 text-sm text-slate-700">Field-level checks and HS code suggestions reduce mistakes.</p>
+        </div>
+        <div class="rounded-2xl bg-kf-light border border-slate-200 p-6">
+          <h3 class="font-semibold">Management</h3>
+          <p class="mt-2 text-sm text-slate-700">Throughput up, cost down — better SLA and customer experience.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-2xl md:text-3xl font-bold">Built for Forwarders</h2>
+      <p class="mt-2 text-slate-600">Fast, accurate, and compliant — starting with Malaysia.</p>
+
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+          <div class="h-10 w-10 rounded-lg bg-kf-blue/10 flex items-center justify-center"><span class="text-kf-blue font-bold">AI</span></div>
+          <h3 class="mt-4 font-semibold">AI Document Processing</h3>
+          <p class="mt-2 text-sm text-slate-600">Parse scanned/native docs, map fields, suggest HS codes, flag inconsistencies.</p>
+        </div>
+        <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+          <div class="h-10 w-10 rounded-lg bg-kf-blue/10 flex items-center justify-center"><span class="text-kf-blue font-bold">ED</span></div>
+          <h3 class="mt-4 font-semibold">EDIFACT/CUSCAR Outputs</h3>
+          <p class="mt-2 text-sm text-slate-600">Generate messages aligned to MIG — Dagang Net-ready.</p>
+        </div>
+        <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+          <div class="h-10 w-10 rounded-lg bg-kf-blue/10 flex items-center justify-center"><span class="text-kf-blue font-bold">QA</span></div>
+          <h3 class="mt-4 font-semibold">Validation & QA</h3>
+          <p class="mt-2 text-sm text-slate-600">Form logic checks let you edit before export to reduce rework and penalties.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILED SOLUTION -->
+    <section id="solution" class="mx-auto max-w-6xl px-4 py-16">
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">How Kaizen Flow Works</h2>
+          <p class="mt-2 text-slate-600">From document to compliant output — a streamlined, auditable path.</p>
+          <ol class="mt-6 space-y-4 text-sm text-slate-700 list-decimal list-inside">
+            <li><span class="font-medium">Upload</span> your CI/PL/B/L/AWB (native or scanned PDF).</li>
+            <li><span class="font-medium">AI extraction</span> identifies key fields (party info, incoterms, commodity, values, packages).</li>
+            <li><span class="font-medium">Mapping</span> to form schemas (K1–K9, Borang 2) and EDIFACT/CUSCAR segments per MIG.</li>
+            <li><span class="font-medium">Validation</span> runs rule checks (codes, date/qty/value math, required fields) and flags issues.</li>
+            <li><span class="font-medium">Preview & Edit</span> — operators confirm/adjust before finalizing.</li>
+            <li><span class="font-medium">Export</span> to Excel (forms) or EDIFACT/CUSCAR messages; logs stored for audit.</li>
+            <li><span class="font-medium">(M2B)</span> Send via Dagang Net and receive CUSRES/EMSRSP responses.</li>
+          </ol>
+        </div>
+        <div class="p-2 rounded-2xl gradient-border">
+          <div class="rounded-2xl bg-white p-6">
+            <h3 class="font-semibold">Request a Technical Walkthrough</h3>
+            <p class="mt-2 text-sm text-slate-600">We’ll show the end‑to‑end flow on real sample docs.</p>
+            <form name="demo-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/#thanks" class="grid grid-cols-1 gap-4">
+              <input type="hidden" name="form-name" value="demo-request" />
+              <p class="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+              <label class="text-sm font-medium">Company Name
+                <input required name="company" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3" />
+              </label>
+              <label class="text-sm font-medium">Work Email
+                <input required type="email" name="email" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3" />
+              </label>
+              <label class="text-sm font-medium">Message (optional)
+                <textarea name="message" rows="4" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3"></textarea>
+              </label>
+              <button class="rounded-xl bg-kf-blue text-white px-5 py-3">Send</button>
+              <p class="text-xs text-slate-500">By submitting, you agree to be contacted about Kaizen Flow.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRESS / ROADMAP -->
+    <section id="progress" class="mx-auto max-w-6xl px-4 py-16">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">Progress</h2>
+          <p class="mt-2 text-slate-600">What’s done and what’s next.</p>
+        </div>
+        <a href="#contact" class="hidden md:inline-flex items-center gap-2 text-sm text-kf-blue">Join as Pilot →</a>
+      </div>
+
+      <ol class="mt-8 relative border-s border-slate-200">
+        <li class="pl-6 py-6"><div class="absolute -left-1 mt-2 h-2.5 w-2.5 rounded-full bg-emerald-500"></div><h3 class="font-semibold">M1A — Excel outputs for K-forms (K1–K9, Borang 2)</h3><p class="text-sm text-slate-600">Prototype ready; internal QA passed on sample flows.</p></li>
+        <li class="pl-6 py-6"><div class="absolute -left-1 mt-2 h-2.5 w-2.5 rounded-full bg-amber-500"></div><h3 class="font-semibold">M2A — Internal EDIFACT & CUSCAR flow (no API)</h3><p class="text-sm text-slate-600">Dashboard simulation: upload → AI mapping → edit → save.</p></li>
+        <li class="pl-6 py-6"><div class="absolute -left-1 mt-2 h-2.5 w-2.5 rounded-full bg-slate-400"></div><h3 class="font-semibold">M2B — Live Dagang Net API (EDIFACT + CUSCAR)</h3><p class="text-sm text-slate-600">CUSRES/EMSRSP handling; logs and retries.</p></li>
+        <li class="pl-6 py-6"><div class="absolute -left-1 mt-2 h-2.5 w-2.5 rounded-full bg-slate-400"></div><h3 class="font-semibold">M3A — Onboarding 3–5 Forwarders</h3><p class="text-sm text-slate-600">Docs, training, and pilot success checklist.</p></li>
+      </ol>
+
+      <div id="pilot" class="mt-8 p-6 rounded-2xl bg-white border border-slate-200 shadow-soft">
+        <h3 class="font-semibold">Looking for Pilot Partners</h3>
+        <p class="mt-2 text-sm text-slate-600">Early pilots get 1-month free, priority features, and discounted pricing.</p>
+        <a href="#solution" class="mt-4 inline-block rounded-xl bg-kf-blue text-white px-4 py-2">Apply Now</a>
+      </div>
+    </section>
+
+    <!-- CONTACT (secondary CTA) -->
+    <section id="contact" class="mx-auto max-w-6xl px-4 pb-16">
+      <div class="rounded-2xl bg-kf-light border border-slate-200 p-6 text-center">
+        <h3 class="font-semibold text-lg">Ready to see it in action?</h3>
+        <p class="mt-2 text-sm text-slate-700">We’ll tailor the demo to your flow (air/sea/road).</p>
+        <a href="#solution" class="mt-4 inline-block rounded-xl bg-kf-blue text-white px-5 py-3">Request a Demo</a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200">
+      <div class="mx-auto max-w-6xl px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+        <p class="text-slate-600">© <span id="year"></span> Kaizen Flow Sdn Bhd. All rights reserved.</p>
+        <div class="flex items-center gap-4 text-slate-600">
+          <a href="#" class="hover:text-kf-blue">Terms</a>
+          <a href="#" class="hover:text-kf-blue">Privacy</a>
+          <a href="#solution" class="hover:text-kf-blue">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile nav toggle
+      const btn = document.getElementById('menuBtn');
+      const mobile = document.getElementById('mobileNav');
+      btn?.addEventListener('click', () => mobile.classList.toggle('hidden'));
+      // Year
+      document.getElementById('year').textContent = new Date().getFullYear();
+      // Success banner
+      if (window.location.hash === '#thanks') {
+        document.getElementById('thanksBanner').classList.remove('hidden');
+        // remove hash so refresh doesn't keep banner
+        history.replaceState(null, '', window.location.pathname);
+      }
+    </script>
+  </body>
+</html>
