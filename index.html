@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kaizen Flow — AI-Powered Customs Automation</title>
+    <meta name="description" content="Kaizen Flow automates Malaysian customs clearance with AI: document parsing, validation, and EDIFACT/CUSCAR generation. Cut manual work, errors, and delays." />
+
+    <!-- Tailwind Play CDN (simple for first launch). For production, we can switch to a build pipeline later. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              kf: {
+                blue: '#0B63F6',
+                dark: '#0A0F1F',
+                light: '#EAF2FF',
+                accent: '#00E5FF'
+              }
+            },
+            boxShadow: {
+              soft: '0 10px 30px rgba(0,0,0,0.08)'
+            }
+          }
+        }
+      }
+    </script>
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%230B63F6' d='M10 50a40 40 0 1080 0 40 40 0 10-80 0'/%3E%3Cpath fill='white' d='M30 52h40v8H30zM30 40h26v8H30z'/%3E%3C/svg%3E" />
+
+    <style>
+      /* Smooth gradient border helper */
+      .gradient-border { position: relative; }
+      .gradient-border::before {
+        content: ""; position: absolute; inset: -1px; z-index: -1; border-radius: 1.25rem;
+        background: linear-gradient(135deg, #0B63F6 0%, #00E5FF 50%, #6EE7B7 100%);
+      }
+    </style>
+  </head>
+
+  <body class="bg-kf-light text-slate-900">
+    <!-- NAV -->
+    <header class="sticky top-0 z-50 backdrop-blur bg-white/70 border-b border-slate-200">
+      <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2">
+          <div class="h-8 w-8 rounded-xl bg-kf-blue"></div>
+          <span class="font-semibold tracking-tight">Kaizen Flow</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#features" class="hover:text-kf-blue">Features</a>
+          <a href="#progress" class="hover:text-kf-blue">Progress</a>
+          <a href="#contact" class="hover:text-kf-blue">Contact</a>
+          <a href="#pilot" class="rounded-full bg-kf-blue text-white px-4 py-2 hover:opacity-90 shadow-soft">Become a Pilot</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg border border-slate-300">
+          <span class="sr-only">Open menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+      </div>
+      <div id="mobileNav" class="md:hidden hidden border-t border-slate-200 bg-white">
+        <div class="px-4 py-3 flex flex-col gap-3 text-sm">
+          <a href="#features" class="hover:text-kf-blue">Features</a>
+          <a href="#progress" class="hover:text-kf-blue">Progress</a>
+          <a href="#contact" class="hover:text-kf-blue">Contact</a>
+          <a href="#pilot" class="rounded-lg bg-kf-blue text-white px-4 py-2 hover:opacity-90 text-center">Become a Pilot</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-white via-kf-light to-white"></div>
+      <div class="relative mx-auto max-w-6xl px-4 py-20 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm">
+            <span class="inline-block h-2 w-2 rounded-full bg-emerald-500"></span> Prototype Live — Seeking 3 Pilot Forwarders
+          </span>
+          <h1 class="mt-4 text-4xl md:text-5xl font-bold tracking-tight">
+            Automate Malaysian Customs Clearance with <span class="text-kf-blue">AI</span>
+          </h1>
+          <p class="mt-4 text-slate-600">
+            Kaizen Flow reads your Commercial Invoice, Packing List, B/L, AWB and more — validates fields, suggests HS codes, and generates EDIFACT/CUSCAR-ready outputs. Reduce manual work by 70–80% and cut delays.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#contact" class="rounded-xl bg-kf-blue text-white px-5 py-3 shadow-soft text-center">Request a Demo</a>
+            <a href="#features" class="rounded-xl bg-white text-slate-900 px-5 py-3 border border-slate-200 text-center">See Features</a>
+          </div>
+          
+          <!-- Email capture (top) - Netlify Form duplicate for better conversion -->
+          <div class="mt-8 p-2 rounded-2xl gradient-border">
+            <div class="rounded-2xl bg-white p-4">
+              <form name="lead-top" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="flex flex-col sm:flex-row gap-3">
+                <input type="hidden" name="form-name" value="lead-top" />
+                <p class="hidden">
+                  <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                </p>
+                <input required type="email" name="email" placeholder="Work email" class="flex-1 rounded-xl border border-slate-300 px-4 py-3" />
+                <button class="rounded-xl bg-kf-blue text-white px-5 py-3">Notify Me</button>
+              </form>
+              <p class="mt-2 text-xs text-slate-500">We’ll only use this to contact you about Kaizen Flow. Unsubscribe anytime.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual -->
+        <div class="relative">
+          <div class="rounded-2xl bg-white border border-slate-200 shadow-soft p-4">
+            <div class="aspect-[16/10] rounded-xl bg-gradient-to-br from-kf-blue/15 via-kf-blue/5 to-emerald-300/10 border border-dashed border-kf-blue/30 flex items-center justify-center">
+              <div class="text-center px-6">
+                <p class="text-sm uppercase tracking-widest text-slate-500">Preview</p>
+                <h3 class="mt-2 text-xl font-semibold">AI → EDIFACT & CUSCAR Flow</h3>
+                <p class="mt-2 text-slate-600">Upload docs → AI mapping → Validate → Preview/Edit → Export.</p>
+              </div>
+            </div>
+          </div>
+          <p class="mt-3 text-xs text-slate-500">*Illustrative UI. Demo available upon request.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-2xl md:text-3xl font-bold">Built for Forwarders</h2>
+      <p class="mt-2 text-slate-600">Fast, accurate, and compliant — starting with Malaysia.</p>
+
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <!-- Feature -->
+        <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+          <div class="h-10 w-10 rounded-lg bg-kf-blue/10 flex items-center justify-center">
+            <span class="text-kf-blue font-bold">AI</span>
+          </div>
+          <h3 class="mt-4 font-semibold">AI Document Processing</h3>
+          <p class="mt-2 text-sm text-slate-600">Parse scanned/native docs, match fields, suggest HS codes, and flag inconsistencies before submission.</p>
+        </div>
+        <!-- Feature -->
+        <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+          <div class="h-10 w-10 rounded-lg bg-kf-blue/10 flex items-center justify-center">
+            <span class="text-kf-blue font-bold">ED</span>
+          </div>
+          <h3 class="mt-4 font-semibold">EDIFACT/CUSCAR Outputs</h3>
+          <p class="mt-2 text-sm text-slate-600">Generate declaration and manifest messages aligned to MIG, ready for Dagang Net integration.</p>
+        </div>
+        <!-- Feature -->
+        <div class="rounded-2xl bg-white border border-slate-200 p-6 shadow-soft">
+          <div class="h-10 w-10 rounded-lg bg-kf-blue/10 flex items-center justify-center">
+            <span class="text-kf-blue font-bold">QA</span>
+          </div>
+          <h3 class="mt-4 font-semibold">Validation & QA</h3>
+          <p class="mt-2 text-sm text-slate-600">Form-specific logic checks to reduce rework and penalties; edit before export.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRESS / ROADMAP (edit these items as you advance) -->
+    <section id="progress" class="mx-auto max-w-6xl px-4 py-16">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">Progress</h2>
+          <p class="mt-2 text-slate-600">What’s done and what’s next.</p>
+        </div>
+        <a href="#contact" class="hidden md:inline-flex items-center gap-2 text-sm text-kf-blue">Join as Pilot →</a>
+      </div>
+
+      <ol class="mt-8 relative border-s border-slate-200">
+        <!-- EDITABLE ROADMAP ITEM EXAMPLE: duplicate or remove <li> blocks -->
+        <li class="pl-6 py-6">
+          <div class="absolute -left-1 mt-2 h-2.5 w-2.5 rounded-full bg-emerald-500"></div>
+          <h3 class="font-semibold">M1A — Excel outputs for K-forms (K1–K9, Borang 2)</h3>
+          <p class="text-sm text-slate-600">Prototype ready; internal QA passed on sample flows.</p>
+        </li>
+        <li class="pl-6 py-6">
+          <div class="absolute -left-1 mt-2 h-2.5 w-2.5 rounded-full bg-amber-500"></div>
+          <h3 class="font-semibold">M2A — Internal EDIFACT & CUSCAR flow (no API)</h3>
+          <p class="text-sm text-slate-600">Dashboard simulation: upload → AI mapping → edit → save.</p>
+        </li>
+        <li class="pl-6 py-6">
+          <div class="absolute -left-1 mt-2 h-2.5 w-2.5 rounded-full bg-slate-400"></div>
+          <h3 class="font-semibold">M2B — Live Dagang Net API (EDIFACT + CUSCAR)</h3>
+          <p class="text-sm text-slate-600">CUSRES/EMSRSP handling; logs and retries.</p>
+        </li>
+        <li class="pl-6 py-6">
+          <div class="absolute -left-1 mt-2 h-2.5 w-2.5 rounded-full bg-slate-400"></div>
+          <h3 class="font-semibold">M3A — Onboarding 3–5 Forwarders</h3>
+          <p class="text-sm text-slate-600">Docs, training, and pilot success checklist.</p>
+        </li>
+      </ol>
+
+      <div id="pilot" class="mt-8 p-6 rounded-2xl bg-white border border-slate-200 shadow-soft">
+        <h3 class="font-semibold">Looking for Pilot Partners</h3>
+        <p class="mt-2 text-sm text-slate-600">Early pilots get 1-month free, priority features, and discounted pricing.</p>
+        <a href="#contact" class="mt-4 inline-block rounded-xl bg-kf-blue text-white px-4 py-2">Apply Now</a>
+      </div>
+    </section>
+
+    <!-- CONTACT / EMAIL CAPTURE (Netlify Forms) -->
+    <section id="contact" class="mx-auto max-w-6xl px-4 py-16">
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">Request a Demo</h2>
+          <p class="mt-2 text-slate-600">Tell us about your operations. We’ll reach out within 1–2 business days.</p>
+          <ul class="mt-6 space-y-2 text-sm text-slate-600">
+            <li>• Faster declarations with fewer errors</li>
+            <li>• Works with scanned or native PDFs</li>
+            <li>• Built for Malaysian compliance first</li>
+          </ul>
+        </div>
+
+        <div class="p-2 rounded-2xl gradient-border">
+          <div class="rounded-2xl bg-white p-6">
+            <!-- IMPORTANT: Netlify Form. Submissions will appear in Netlify dashboard under "Forms". -->
+            <form name="demo-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="grid grid-cols-1 gap-4">
+              <input type="hidden" name="form-name" value="demo-request" />
+              <p class="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+              <label class="text-sm font-medium">Company Name
+                <input required name="company" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3" />
+              </label>
+              <label class="text-sm font-medium">Work Email
+                <input required type="email" name="email" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3" />
+              </label>
+              <label class="text-sm font-medium">Message (optional)
+                <textarea name="message" rows="4" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-3"></textarea>
+              </label>
+              <button class="rounded-xl bg-kf-blue text-white px-5 py-3">Send</button>
+              <p class="text-xs text-slate-500">By submitting, you agree to be contacted about Kaizen Flow. You can request deletion anytime.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200">
+      <div class="mx-auto max-w-6xl px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+        <p class="text-slate-600">© <span id="year"></span> Kaizen Flow Sdn Bhd. All rights reserved.</p>
+        <div class="flex items-center gap-4 text-slate-600">
+          <a href="#" class="hover:text-kf-blue">Terms</a>
+          <a href="#" class="hover:text-kf-blue">Privacy</a>
+          <a href="#contact" class="hover:text-kf-blue">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile nav toggle
+      const btn = document.getElementById('menuBtn');
+      const mobile = document.getElementById('mobileNav');
+      btn?.addEventListener('click', () => mobile.classList.toggle('hidden'));
+      // Year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
